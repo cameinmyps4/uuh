@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When I freak you understand</title>
+
+<style type="text/css">
+:root {
+  --visor:  #e0722a;
+  --olive:  #7d8260;
+  --tint:   #e4e6d6;
+  --grey:   #666666;
+  --panel:  #f9f9f9; 
+}
+
+::selection { background: #f1f1f1; color: #333333; }
+
+body {
+  background-color: #fdfdfd;
+  background-image: url('http://cbimg6.com/layouts/11/04/36632ab.jpg');
+  background-attachment: fixed;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  color: var(--grey);
+  font-family: arial;
+  font-size: 8pt;
+  margin: 0;
+}
+
+a:link, a:visited, a:active {
+  font-family: arial; color: var(--grey); text-decoration: none;
+  transition: color 0.4s;
+}
+a:hover { color: var(--visor); }
+
+img { border: none; }
+
+/* ---- page wrapper ---- */
+#wrap { width: 750px; max-width: 94%; margin: 30px auto; }
+
+#banner { display: block; width: 100%; height: auto; }
+
+/* ---- top bar ---- */
+.topbar {
+  background: var(--olive); text-transform: uppercase; font-size: 7pt;
+  padding: 5px; margin-top: 15px; border-radius: 10px 10px 0 0;
+}
+.topbar a:link, .topbar a:visited { color: #f4f4ea; }
+.topbar a:hover { color: var(--visor); }
+
+/* ---- profile box ---- */
+.profile {
+  background: #fff; border: 1px solid #eee; padding: 8px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.profile img.avatar {
+  width: 60px; border: 1px solid #eee; padding: 3px; flex: none;
+}
+.profile .bio { flex: 1; font-size: 8pt; }
+.profile .quote { flex: 1; font-family: georgia; font-style: italic; color: var(--visor); }
+.profile .quote .small { font-size: 8pt; padding-top: 5px; }
+.profile .quote .big   { font-size: 14pt; }
+
+/* ---- thin strip under the profile ---- */
+.strip {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #fff; border: 1px solid #eee; border-top: none;
+  padding: 5px 8px; margin-bottom: 8px;
+  font-size: 7pt; text-transform: uppercase; letter-spacing: 1px;
+}
+.strip .tag { background: var(--panel); border-left: 1px solid #eee; padding: 4px 8px; }
+
+/* ---- sidebar + content ---- */
+#layout { display: flex; gap: 8px; align-items: flex-start; }
+
+#side { width: 100px; flex: none; }
+#side a {
+  display: block; background: var(--panel); text-align: center;
+  padding: 10px 3px; margin-bottom: 4px; font: 9pt arial;
+  border-left: 3px solid var(--tint);
+}
+#side a:link, #side a:visited { color: var(--visor); }
+#side a:hover  { background: #fff; color: var(--grey); border-left-color: var(--visor); }
+#side a.on     { background: #fff; border-left-color: var(--visor); }
+
+#content {
+  flex: 1; min-height: 380px; box-sizing: border-box;
+  background: #fff; border: 3px solid var(--tint); padding: 15px;
+  font-size: 9pt; line-height: 1.5;
+}
+#content img { max-width: 100%; }
+
+.h1 {
+  color: var(--grey); text-transform: uppercase; font-size: 8pt;
+  letter-spacing: 2px; border-bottom: 2px solid var(--tint); margin-bottom: 8px;
+}
+
+a.boxlink:link, a.boxlink:visited {
+  display: inline-block; font: 8pt arial; background: var(--panel); color: var(--grey);
+  width: 88px; padding: 3px; text-align: center; margin-bottom: 1px;
+}
+a.boxlink:hover { background: #fdfdfd; color: var(--visor); }
+
+.panel { display: none; }
+.panel.show { display: block; }
+
+/* stack the sidebar above the content on phones */
+@media (max-width: 560px) {
+  #layout { flex-direction: column; }
+  #side { width: 100%; display: flex; flex-wrap: wrap; gap: 4px; }
+  #side a { flex: 1; margin: 0; }
+  .profile { flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+
+  <!-- header image: put Jun.png in the same folder as this file -->
+  <img id="banner" src="jun.png" alt="Jun">
+
+  <div class="topbar"><a href="#" onclick="location.reload(); return false;">refresh</a></div>
+
+  <!-- profile -->
+  <div class="profile">
+    <img class="avatar" src="jun2.png" alt="">
+    <div class="bio">
+      blahblah<br>
+      Your short profile here hoho.<br>
+      » <a href="#">view all my links</a>
+    </div>
+    <div class="quote">
+      <div class="small">Cause you wrote my name across your hand</div>
+      <div class="big">When I freak you understand</div>
+    </div>
+  </div>
+
+  <!-- strip under the profile -->
+  <div class="strip">
+    <span>proudly sponsored by the noble team</span>
+    <span class="tag">noble three · sniper</span>
+  </div>
+
+  <!-- sidebar + content -->
+  <div id="layout">
+
+    <div id="side">
+      <a href="#" id="nav-home"  class="on" onclick="show('home');  return false;">home</a>
+      <a href="#" id="nav-about"  onclick="show('about');  return false;">about</a>
+      <a href="#" id="nav-links"  onclick="show('links');  return false;">links</a>
+      <!-- these two open other sites: put your own profile addresses in -->
+      <a href="https://steamcommunity.com/id/unscspartan/" target="_blank">steam</a>
+      <a href="https://github.com/cameinmyps4" target="_blank">github</a>
+    </div>
+
+    <div id="content">
+
+      <div id="home" class="panel show">
+        My text here
+      </div>
+
+      <div id="about" class="panel">
+        <div class="h1">about</div>
+        Rah rah a more detailed profile if you're bothered. I like cheese and monochrome black converse ho yeah.
+      </div>
+
+      <div id="links" class="panel">
+        <div class="h1">friends</div>
+        <a href="#" class="boxlink" target="_blank">nekoprospekt</a>
+        <a href="#" class="boxlink" target="_blank">Eva !</a>
+        <a href="#" class="boxlink" target="_blank">Gabby !</a>
+        <a href="#" class="boxlink" target="_blank">Joyce !</a>
+        <a href="#" class="boxlink" target="_blank">Wanjing !</a>
+        <br><br>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function show(id) {
+  var panels = document.querySelectorAll('.panel');
+  for (var i = 0; i < panels.length; i++) panels[i].classList.remove('show');
+  document.getElementById(id).classList.add('show');
+
+  var links = document.querySelectorAll('#side a');
+  for (var j = 0; j < links.length; j++) links[j].classList.remove('on');
+  var nav = document.getElementById('nav-' + id);
+  if (nav) nav.classList.add('on');
+}
+</script>
+</body>
+</html>
